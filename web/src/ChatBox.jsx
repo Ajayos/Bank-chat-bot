@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Box, Button, TextField, Typography, Grid, Avatar, CircularProgress } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
@@ -12,6 +12,13 @@ const ChatBox = () => {
     { name: 'Credit', res: 'credit' },
     { name: 'Info', res: 'info' },
   ]);
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   const handleSendMessage = async (content) => {
     setMessages([...messages, { type: 'user', content }]);
@@ -91,6 +98,7 @@ const ChatBox = () => {
             <CircularProgress size={24} />
           </Box>
         )}
+        <div ref={messagesEndRef} />
       </Box>
       {buttons.length > 0 ? (
         <Grid container spacing={1}>
