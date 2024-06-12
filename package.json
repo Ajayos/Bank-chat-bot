@@ -10,6 +10,8 @@
   "author": "Ajay o s",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "cros": "^1.0.1",
     "express": "^4.19.2"
   },
   "devDependencies": {
