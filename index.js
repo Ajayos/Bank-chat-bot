@@ -1,9 +1,10 @@
 const express = require("express");
+const http = require("http");
 const path = require("path");
+
 const app = express();
+const server = http.createServer(app);
 app.use(express.json());
-
-
 
 app.post("/chat", (req, res) => {
   const { message } = req.body;
@@ -34,6 +35,7 @@ app.get("*", (req, res) => {
   const public = path.join(__dirname, "web", "dist", "index.html");
   res.sendFile(public);
 });
-app.listen(3001, () => {
-  console.log("Server is running on port 3001");
+
+server.listen(3000, () => {
+  console.log("Server is running on port 3000");
 });
