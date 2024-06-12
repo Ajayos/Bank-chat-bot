@@ -1,5 +1,18 @@
 {
+  "name": "bank-chat-bot",
+  "version": "1.0.0",
+  "description": "just a intro to chat bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Ajay o s",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@ajayos/nodemon": "^0.0.5"
   }
 }
